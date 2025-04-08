@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+nav ul li .nav-link {
+    padding: 8px;
+    margin: 5px;
+}
+
+nav ul li .nav-link.active {
+    background-color: #E91E63;
+    color: white;
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+
+
+/* label {
+    display: inline-block;
+    font-weight: bold;
+    margin: 15px 0 5px 0;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+input[type=text] {
+    outline: none;
+    line-height: 2;
+    padding: 5px 10px;
+    border: 1.5px solid #333;
+    border-radius: 6px;
+    min-width: 200px;
+}
+
+input[type=text].ng-pristine.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+input[type=submit] {
+    background-color: forestgreen;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+input[type=button],
+button {
+    background-color: rgba(20, 109, 234, 0.913);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+input[type=button].red,
+button.red {
+    background-color: red;
+}
+
+input[type=submit]:disabled,
+input[type=button]:disabled,
+button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+} */

@@ -1,0 +1,9 @@
+<h3 style="color: white; background-color: green; padding: 5px;">Child component</h3>
+
+Parent Data : <b style="color: red;">{{parentData}}</b>
+<!-- OR -->
+<!-- Parent Data : <b style="color: red;">{{parentData2}}</b> -->
+
+<br><br>
+<input #child type="text" (keyup)="sendData(child.value)">
+<br>

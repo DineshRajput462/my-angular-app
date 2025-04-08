@@ -1,0 +1,121 @@
+<div class="row">
+    <form [formGroup]="formGroup" (ngSubmit)="register()" class="col-md-4">
+        <div class="form-group mb-3">
+            <label for="fname2" class="form-label">First Name</label><br>
+            <input type="text" name="fname2" id="fname2" class="form-control"
+                [class.is-invalid]="f['fname'].invalid && (f['fname'].touched || f['fname'].dirty)"
+                placeholder="Enter your first name" formControlName="fname">
+            @if (f['fname'].invalid && (f['fname'].touched || f['fname'].dirty)) {
+            <div class="error">
+                @if (f['fname'].hasError('required')) {
+                Please enter your first name
+                } @else if (f['fname'].hasError('minlength')) {
+                Minimum 2 characters required
+                } @else if (f['fname'].hasError('maxlength')) {
+                Maximum 20 characters
+                }
+            </div>
+            }
+        </div>
+        <div class="form-group mb-3">
+            <label for="lname2" class="form-label">Last Name</label><br>
+            <input type="text" name="lname2" id="lname2" class="form-control"
+                [class.is-invalid]="f['lname'].invalid && (f['lname'].touched || f['lname'].dirty)"
+                placeholder="Enter your last name" formControlName="lname">
+            @if (f['lname'].invalid && (f['lname'].touched || f['lname'].dirty)) {
+            <div class="error">
+                Please enter your last name
+            </div>
+            }
+        </div>
+        <div class="form-group mb-3">
+            <label for="email2" class="form-label">Email</label><br>
+            <input type="text" name="email2" id="email2" class="form-control" [class.is-invalid]="f['email'].invalid && (f['email'].touched || f['email'].dirty)" placeholder="Enter your email id" formControlName="email">
+            @if (f['email'].invalid && (f['email'].touched || f['email'].dirty)) {
+                <div class="error">
+                    @if (f['email'].hasError('required')) {
+                        Please enter your email id
+                    } @else if (f['email'].hasError('email')) {
+                        Please enter correct email id
+                    }
+                </div>
+            }
+        </div>
+        <div class="form-group mb-3">
+            <label for="country" class="form-label">Country</label><br>
+            <select name="country" id="country" class="form-select" [class.is-invalid]="f['country'].invalid && (f['country'].touched || f['country'].dirty)" formControlName="country">
+                <option value="">Select Country</option>
+                @for(country of countries; track $index) {
+                    <option [value]="country" [id]="$index">{{country}}</option>
+                }
+            </select>
+            @if (f['country'].invalid && (f['country'].touched || f['country'].dirty)) {
+                <div class="error">
+                    @if (f['country'].hasError('required')) {
+                        Please enter country
+                    }
+                </div>
+            }
+        </div>
+        <div class="form-group mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <div style="display: flex; gap: 5px 10px; flex-wrap: wrap;">
+                <span class="form-check">
+                    <input type="radio" name="gender" value="Male" id="gender-male" class="form-check-input" formControlName="gender">
+                    <label for="gender-male" class="form-check-label">Male</label>
+                </span>
+                <span class="form-check">
+                    <input type="radio" name="gender" value="Female" id="gender-female" class="form-check-input" formControlName="gender">
+                    <label for="gender-female" class="form-check-label">Female</label>
+                </span>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="languages" class="form-label">Languages</label>
+            <div *ngFor="let language of languages; let i = index">
+                <div class="form-check">          
+                    <input type="checkbox" name="languages" [id]="language" [value]="language" class="form-check-input" (change)="onChange($event)">
+                    <label class="form-check-label" [for]="language">
+                        {{language}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div formArrayName="mobileNumbers" class="d-grid" style="background-color: #FAFAFA; padding: 20px; margin: 20px 0; border: 1px solid #E0E0E0; border-radius: 10px;">
+            <div *ngFor="let mobileNumber of f['mobileNumbers'].controls, index as idx" class="form-group mb-3">
+                <label for="mobile{{idx + 1}}" class="form-label">Mobile Number {{idx + 1}}</label><br>
+                <div style="display: flex; gap: 5px;">
+                    <input type="text" name="mobile{{idx + 1}}" id="mobile{{idx + 1}}" class="form-control" [class.is-invalid]="mobileNumber.invalid && (mobileNumber.touched || mobileNumber.dirty)" placeholder="Enter your mobile number {{idx + 1}}" [formControlName]="idx">
+                    <button class="btn btn-danger" (click)="removeMobileNumber(idx)">
+                        <i class="bi bi-x-circle"></i>
+                    </button>
+                </div>
+                @if (mobileNumber.invalid && (mobileNumber.touched || mobileNumber.dirty)) {
+                <div class="error">
+                    @if (mobileNumber.hasError('required')) {
+                        Please enter mobile number {{idx + 1}}
+                    } @else if (mobileNumber.hasError('pattern')) {
+                        Mobile number only contains digits and must have 10 digits length
+                    }
+                </div>
+                }
+            </div>
+            <button class="btn btn-dark" (click)="addMobileNumber()">
+                <i class="bi bi-plus-circle"></i>&nbsp;&nbsp;Add more...
+            </button>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" name="accept" id="accept" class="form-check-input" formControlName="accept">
+            <label for="accept" class="form-check-label">I Accept The Terms & Conditions</label>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 25px 0;">
+            <input type="submit" value="Register" class="btn btn-success" [disabled]="formGroup.invalid">
+
+            <input type="button" value="Fill All" class="btn btn-primary" (click)="fill()">
+            <input type="button" value="Fill Partial" class="btn btn-primary" (click)="fill(false)">
+
+            <input type="button" value="Reset All" class="btn btn-danger" (click)="reset()">
+            <input type="button" value="Reset Partial" class="btn btn-danger" (click)="reset(false)">
+        </div>
+    </form>
+</div>

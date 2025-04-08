@@ -1,0 +1,13 @@
+<h1>All products</h1>
+<br>
+<div class="btn-group mb-4" role="group">
+    <button routerLink="tshirts" class="btn btn-outline-primary">T-shirts</button>
+    <button routerLink="trousers" class="btn btn-outline-primary">Trousers</button>
+</div>
+&nbsp;
+<div class="btn-group mb-4" role="group">
+    <button (click)="showTshirts()" class="btn btn-outline-success">T-shirts</button>
+    <button (click)="showTrousers()" class="btn btn-outline-success">Trousers</button>
+</div>
+
+<router-outlet></router-outlet>

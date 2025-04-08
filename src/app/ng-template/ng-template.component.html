@@ -1,0 +1,67 @@
+<h1>1. Structural Directives</h1><br>
+
+<div *ngIf="showMessage; else noMessage">
+    <h3 style="color: green;">Hello World!</h3>
+</div>
+<button (click)="toggleShow()" class="btn btn-primary">Click ({{ showMessage }})</button>
+
+<ng-template #noMessage>
+    <h3 style="color: red;">No message to display.</h3>
+</ng-template>
+
+<hr>
+
+<h1>2. Content Projection</h1><br>
+
+<!-- Parent Component -->
+<app-child2>
+    <ng-template>
+        <h3>Content projected into the child component</h3>
+    </ng-template>
+</app-child2>
+
+<hr>
+
+<h1>3. ng-container</h1><br>
+
+<ng-container *ngIf="isLoggedIn; else loginTemplate">
+    <h3>Welcome, {{ username }}!</h3>
+    <button (click)="logout()" class="btn btn-danger">Logout</button>
+</ng-container>
+
+<ng-template #loginTemplate>
+    <h3 style="color: red;">Please log in to continue.</h3>
+</ng-template>
+
+<hr>
+
+<h1>4. Template Reference Variables</h1><br>
+
+<ng-template #myTemplate>
+    <h3>This is a template reference.</h3>
+</ng-template>
+
+<button (click)="showTemplate(myTemplate)" class="btn btn-primary">Show Template</button>
+
+<hr>
+
+<h1>1. Using NgTemplateOutlet</h1>
+
+<p>Static content</p>
+<ng-template #infoTemplate>
+    <p>Dynamic section</p>
+</ng-template>
+<ng-container *ngTemplateOutlet="infoTemplate"></ng-container>
+
+<br>
+
+<ng-template #nameTemplate let-userName let-message>
+    <h3>Hello, {{ userName }}!</h3>
+</ng-template>
+<ng-container *ngTemplateOutlet="nameTemplate; context: { $implicit: 'Dinesh' }"></ng-container>
+
+<hr>
+
+<h1>2. Using ViewContainerRef</h1>
+
+<app-dynamic></app-dynamic>

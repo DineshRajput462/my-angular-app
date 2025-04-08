@@ -1,0 +1,8 @@
+<h1>List of Employees</h1>
+<ul class="list-group">
+    @for (employee of employees; track $index) {
+        <li class="list-group-item" [class.active]="selectedId == employee.id" (click)="viewEmployeeDetails(employee)">
+            {{ employee.id }} - {{ employee.name }}
+        </li>
+    }
+</ul>

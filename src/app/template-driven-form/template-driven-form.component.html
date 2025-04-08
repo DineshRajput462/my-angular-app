@@ -1,0 +1,24 @@
+
+<div>
+    <form #fdata="ngForm" (ngSubmit)="register(fdata)">
+        <div>
+            <label for="fname">First Name</label><br>
+            <input type="text" name="fname" id="fname" placeholder="Enter your first name" required ngModel #fname="ngModel">
+            <div class="error" *ngIf="fname.invalid && fname.touched">Please enter your first name</div>
+        </div>
+        <div>
+            <label for="lname">Last Name</label><br>
+            <input type="text" name="lname" id="lname" placeholder="Enter your last name" required ngModel #lname="ngModel">
+            <div class="error" *ngIf="lname.invalid && lname.touched">Please enter your last name</div>
+        </div>
+        <div>
+            <label for="email">Email</label><br>
+            <input type="text" name="email" id="email" placeholder="Enter your email id" required ngModel #email="ngModel">
+            <div class="error" *ngIf="email.invalid && email.touched">Please enter your email</div>
+        </div>
+        <div>
+            <br>
+            <input type="submit" value="Register" [disabled]="fdata.invalid">
+        </div>
+    </form>
+</div>

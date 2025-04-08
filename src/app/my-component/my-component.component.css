@@ -1,0 +1,20 @@
+.css1 {
+    background-color:aqua;
+}
+
+.css2 {
+    background-color:chartreuse;
+}
+
+.css3 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+.css4 {
+    font-size: 25px;
+}
+
+.active {
+    background-color: aquamarine;
+}

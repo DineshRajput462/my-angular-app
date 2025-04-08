@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NgStyle } from '@angular/common';
+import { RoutingComponent } from './routing/routing.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RoutingComponent, NgStyle],
   templateUrl: './app.component.html',
+  //template: `Hello World`,
   styleUrl: './app.component.css'
 })
 export class AppComponent {

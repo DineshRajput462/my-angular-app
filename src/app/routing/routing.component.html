@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Angular app</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a routerLink="home" routerLinkActive="active" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="about-us" routerLinkActive="active" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="contact-us" routerLinkActive="active" class="nav-link">Contact Us</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a routerLink="contact-us/1" routerLinkActive="active" class="nav-link">Contact Us with ID</a>
+                </li> -->
+                <li class="nav-item">
+                    <a routerLink="products" routerLinkActive="active" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="courses" routerLinkActive="active" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="[{ outlets: { courseDetails: ['course-details']}}]" routerLinkActive="active" class="nav-link">Course Details</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="[{ outlets: { courseDetails2: ['course-details2']}}]" routerLinkActive="active" class="nav-link">Course Details 2</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="ng-content" routerLinkActive="active" class="nav-link">Ng Content</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="ng-template" routerLinkActive="active" class="nav-link">Ng Template</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="my-component" routerLinkActive="active" class="nav-link">My Component</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="service" routerLinkActive="active" class="nav-link">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="api" routerLinkActive="active" class="nav-link">API</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="signals" routerLinkActive="active" class="nav-link">Signals</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="employees" routerLinkActive="active" class="nav-link">Employees</a>
+                </li>              
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+<router-outlet name="courseDetails"></router-outlet>
+<router-outlet name="courseDetails2"></router-outlet>
