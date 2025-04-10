@@ -276,11 +276,12 @@
 
 
 <br><hr>
-<h1>Parent to child communication</h1>
+<h1 class="mb-4">Parent to child communication</h1>
 
-<h3 style="color: white; background-color:blueviolet; padding: 5px;">Parent component</h3>
-
-<input type="text" (keyup)="0" #parent>
+<div class="mb-4">
+    <h3 style="color: white; background-color:blue; padding: 5px;">Parent component</h3>
+    <input type="text" (keyup)="0" #parent>    
+</div>
 
 <app-child [parentData]="parent.value"></app-child>
 <!-- OR -->
@@ -288,11 +289,12 @@
 
 
 <br><hr>
-<h1>Child to parent communication</h1>
+<h1 class="mb-4">Child to parent communication</h1>
 
-<h3 style="color: white; background-color:blueviolet; padding: 5px;">Parent component</h3>
-
-Child Data : <b style="color: red;">{{childData}}</b>
+<div class="mb-4">
+    <h3 style="color: white; background-color:blue; padding: 5px;">Parent component</h3>
+    Child Data : <b style="color: red;">{{childData}}</b>
+</div>
 
 <app-child (eventEmitter)="getData($event)"></app-child>
 <!-- OR -->
