@@ -8,6 +8,8 @@ import { HoverHighlightDirective } from '../shared/hover-highlight.directive';
 import { ChangeBgColorDirective } from '../shared/change-bgcolor.directive';
 import { TemplateDrivenFormComponent } from '../template-driven-form/template-driven-form.component';
 import { ModelDrivenFormComponent } from '../model-driven-form/model-driven-form.component';
+import { ProductComponent } from '../product/product.component';
+import { Product2Component } from '../product2/product2.component';
 
 @Component({
   selector: 'app-my-component',
@@ -18,6 +20,8 @@ import { ModelDrivenFormComponent } from '../model-driven-form/model-driven-form
     MyPipePipe,
     PowerPipe,
     ChildComponent,
+    ProductComponent,
+    Product2Component,
     TemplateDrivenFormComponent,
     ModelDrivenFormComponent],
   templateUrl: './my-component.component.html',
@@ -45,6 +49,10 @@ export class MyComponentComponent implements OnInit {
   month = new Date().getMonth() + 1;
   countries: string[] = [
     'India', 'Canada', 'USA', 'UK', 'Australia', 'France', 'Russia', 'New Zealand', 'Germany', 'Italy'
+  ];
+
+  products: string[] = [
+    'Mobile', 'TV', 'Laptop', 'Refridgerator', 'AC', 'Washing Machine'
   ];
 
   obj = {
@@ -81,6 +89,12 @@ export class MyComponentComponent implements OnInit {
   childData: any;
   getData(data: any) {
     this.childData = data;
+  }
+
+  products2: string[] = [];
+  getProducts(products: string[]) {
+    console.log(products);
+    this.products2 = products;
   }
 
   ngOnInit(): void {

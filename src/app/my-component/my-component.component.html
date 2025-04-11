@@ -287,6 +287,12 @@
 <!-- OR -->
 <!-- <app-child parentData={{parent.value}}></app-child> -->
 
+<br>
+<h2>Reuse components with pass data to child components</h2><br>
+
+@for (product of products; track $index) {
+    <app-product [product]="product"></app-product>
+}
 
 <br><hr>
 <h1 class="mb-4">Child to parent communication</h1>
@@ -300,8 +306,21 @@
 <!-- OR -->
 <!-- <app-child (eventEmitter)="childData = $event"></app-child> -->
 
+<br>
+<h2>Example 2</h2><br>
 
-<br><hr>
+<div class="mb-4">
+    <app-product2 (getProducts)="getProducts($event)" ></app-product2>
+</div>
+
+<ol>
+    @for (product of products2; track $index) {
+        <li>{{product}}</li>
+    }
+</ol>
+
+
+<hr>
 <h1>"&#64;HostListner" decorator</h1>
 
 <div>
