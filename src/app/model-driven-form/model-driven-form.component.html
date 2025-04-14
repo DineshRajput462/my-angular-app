@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-4">
     <form [formGroup]="formGroup" (ngSubmit)="register()" class="col-md-4">
         <div class="form-group mb-3">
             <label for="fname2" class="form-label">First Name</label><br>
@@ -22,11 +22,11 @@
             <input type="text" name="lname2" id="lname2" class="form-control"
                 [class.is-invalid]="f['lname'].invalid && (f['lname'].touched || f['lname'].dirty)"
                 placeholder="Enter your last name" formControlName="lname">
-            @if (f['lname'].invalid && (f['lname'].touched || f['lname'].dirty)) {
-            <div class="error">
-                Please enter your last name
-            </div>
-            }
+                @if (f['lname'].invalid && (f['lname'].touched || f['lname'].dirty)) {
+                    <div class="error">
+                        Please enter your last name
+                    </div>
+                }
         </div>
         <div class="form-group mb-3">
             <label for="email2" class="form-label">Email</label><br>
@@ -119,3 +119,69 @@
         </div>
     </form>
 </div>
+
+
+<br><h2>Example 2</h2><br>
+
+<form action="">
+    <input type="text" placeholder="Enter username" class="form-control" [formControl]="userName"><br>
+    <input type="text" placeholder="Enter password" class="form-control" [formControl]="password"><br>
+    <button class="btn btn-primary">Login</button>
+</form>
+
+<br>
+
+<h6>User name : {{userName.value}}</h6>
+<h6>Password : {{password.value}}</h6>
+
+<br><br><h2>Example 3</h2><br>
+
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <div>
+        <input type="text" placeholder="Enter username" class="form-control" formControlName="userName">
+        @if (signupForm.get('userName')?.invalid && (signupForm.get('userName')?.touched || signupForm.get('userName')?.dirty)) {
+            @if(signupForm.get('userName')?.hasError('required')) {
+                <div class="error">
+                    Please enter username
+                </div>
+            }
+        }
+    </div>
+    <br>
+    <div>
+        <input type="text" placeholder="Enter email" class="form-control" formControlName="email">
+        @if (signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)) {
+            <div class="error">
+                @if (signupForm.get('email')?.hasError('required')) {
+                    Please enter email id
+                } @else if (signupForm.get('email')?.hasError('maxlength')) {
+                    Maximum 50 characters
+                } @else if (signupForm.get('email')?.hasError('email')) {
+                    Please enter valid email id
+                } 
+            </div>
+        }
+    </div>
+    <br>
+    <div>
+        <input type="text" placeholder="Enter password" class="form-control" formControlName="password">
+        @if (signupForm.get('password')?.invalid && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)) {
+            <div class="error">
+                @if (signupForm.get('password')?.hasError('required')) {
+                    Please enter password
+                } @else if (signupForm.get('password')?.hasError('minlength')) {
+                    Minimum 5 characters
+                }
+            </div>
+        }
+    </div>
+    <br>
+    <button class="btn btn-success">Sign up</button>
+</form>
+
+<br>
+
+<h6>User name : {{signupForm.value.userName}} <!-- OR : signupForm.controls.userName.value --></h6> 
+<h6>Email : {{signupForm.value.email}}</h6>
+<h6>Password : {{signupForm.value.password}}</h6>
+

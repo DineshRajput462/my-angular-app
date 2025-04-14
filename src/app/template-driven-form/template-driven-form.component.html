@@ -1,24 +1,54 @@
-
-<div>
-    <form #fdata="ngForm" (ngSubmit)="register(fdata)">
-        <div>
-            <label for="fname">First Name</label><br>
-            <input type="text" name="fname" id="fname" placeholder="Enter your first name" required ngModel #fname="ngModel">
-            <div class="error" *ngIf="fname.invalid && fname.touched">Please enter your first name</div>
+<div class="row mt-4">
+    <form #fdata="ngForm" (ngSubmit)="register(fdata)" class="col-md-4">
+        <div class="form-group mb-3">
+            <label for="fname" class="form-label">First Name</label><br>
+            <input type="text" name="fname" id="fname" placeholder="Enter first name" class="form-control" required
+                ngModel #fname="ngModel">
+            <div class="error" *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+                Please enter first name
+            </div>
         </div>
-        <div>
-            <label for="lname">Last Name</label><br>
-            <input type="text" name="lname" id="lname" placeholder="Enter your last name" required ngModel #lname="ngModel">
-            <div class="error" *ngIf="lname.invalid && lname.touched">Please enter your last name</div>
+        <div class="form-group mb-3">
+            <label for="lname" class="form-label">Last Name</label><br>
+            <input type="text" name="lname" id="lname" placeholder="Enter last name" class="form-control" required
+                ngModel #lname="ngModel">
+            <div class="error" *ngIf="lname.invalid && (lname.dirty || lname.touched)">
+                Please enter last name
+            </div>
         </div>
-        <div>
-            <label for="email">Email</label><br>
-            <input type="text" name="email" id="email" placeholder="Enter your email id" required ngModel #email="ngModel">
-            <div class="error" *ngIf="email.invalid && email.touched">Please enter your email</div>
+        <div class="form-group mb-3">
+            <label for="email" class="form-label">Email</label><br>
+            <input type="email" name="email" id="email" placeholder="Enter email id" class="form-control" required email
+                ngModel #email="ngModel">
+            <div class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email?.hasError('required')">
+                    Please enter email id
+                </div>
+                <div *ngIf="email?.hasError('email')">
+                    Please enter valid email id
+                </div>
+            </div>
         </div>
-        <div>
-            <br>
-            <input type="submit" value="Register" [disabled]="fdata.invalid">
+        <div class="form-group mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select name="gender" id="gender" class="form-select" required ngModel>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <div class="error" *ngIf="fdata.control.get('gender')?.invalid && fdata.control.get('gender')?.touched">
+                Please select gender
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <input type="submit" value="Register" class="btn btn-success" [disabled]="fdata.invalid">
         </div>
     </form>
 </div>
+
+<br>
+
+<h6>First Name : {{fdata.value.fname}}</h6>
+<h6>Last Name : {{fdata.value.lname}}</h6>
+<h6>Email : {{fdata.value.email}}</h6>
+<h6>Gender : {{fdata.value.gender}}</h6>

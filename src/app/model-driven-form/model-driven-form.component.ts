@@ -10,6 +10,25 @@ import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Va
 })
 export class ModelDrivenFormComponent {
 
+  userName: FormControl = new FormControl();
+  password: FormControl = new FormControl();
+
+  signupForm = new FormGroup({
+    userName: new FormControl('Dinesh', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.maxLength(20), Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)])
+  });
+
+  
+ 
+  signup() {
+    console.log(this.signupForm.value);
+  }
+
+
+
+
+
   formGroup: any;
   countries: string[] = ['India', 'Canada', 'USA', 'UK', 'Australia', 'New Zealand', 'France'];
   languages: string[] = ['English', 'French', 'German', 'Hindi', 'Urdu'];
