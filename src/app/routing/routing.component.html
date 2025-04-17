@@ -8,14 +8,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a routerLink="home" routerLinkActive="active" class="nav-link">Home</a>
+                    <a routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a routerLink="about-us" routerLinkActive="active" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a routerLink="contact-us" routerLinkActive="active" class="nav-link">Contact Us</a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item">
                     <a routerLink="contact-us/1" routerLinkActive="active" class="nav-link">Contact Us with ID</a>
                 </li> -->
@@ -51,7 +51,10 @@
                 </li>
                 <li class="nav-item">
                     <a routerLink="employees" routerLinkActive="active" class="nav-link">Employees</a>
-                </li>              
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['profile', {name: 'Dinesh Rajput'}]" routerLinkActive="active" class="nav-link">Profile</a>
+                </li>
             </ul>
         </div>
     </div>

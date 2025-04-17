@@ -19,9 +19,9 @@ export class EmployeeDetailsComponent {
     // this.empId = Number(id);
     // this.empName = String(name);
 
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      let id = params.get('id');
-      let name = params.get('name');
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      let id = paramMap.get('id');
+      let name = paramMap.get('name');
       this.empId = Number(id);
       this.empName = String(name);
     });

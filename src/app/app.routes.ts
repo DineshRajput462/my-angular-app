@@ -18,6 +18,7 @@ import { CourseDetails2Component } from './course-details2/course-details2.compo
 import { NgContentComponent } from './ng-content/ng-content.component';
 import { NgTemplateComponent } from './ng-template/ng-template.component';
 import { APIComponent } from './api/api.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -78,6 +79,9 @@ export const routes: Routes = [
     { path: 'employees', component: EmployeesListComponent, title: 'Employees' },
     { path: 'employees/:id', component: EmployeeDetailsComponent, title: 'Employee Details' },
     { path: 'employees/:id/:name', component: EmployeeDetailsComponent, title: 'Employee Details' },
+
+    { path: 'profile', component: ProfileComponent, title: 'Profile' },
+    { path: 'profile2', component: ProfileComponent, data: { name: 'Dinesh R' }, title: 'Profile2' },
 
     { path: '**', component: NotFoundComponent, title: '404 - Not Found' }
 ];
