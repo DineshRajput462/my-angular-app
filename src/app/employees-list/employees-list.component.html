@@ -1,8 +1,10 @@
 <h1>List of Employees</h1>
 <ul class="list-group">
     @for (employee of employees; track $index) {
-        <li class="list-group-item" [class.active]="selectedId == employee.id" (click)="viewEmployeeDetails(employee)">
-            {{ employee.id }} - {{ employee.name }}
+        <li class="list-group-item list-group-item-success list-group-item-action" [class.active]="selectedId == employee.id" (click)="viewEmployeeDetails(employee)">
+            <a routerLink="/employees/{{employee.id}}/{{employee.name}}">
+                {{ employee.name }}
+            </a>          
         </li>
     }
 </ul>

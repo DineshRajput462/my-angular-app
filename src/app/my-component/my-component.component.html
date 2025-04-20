@@ -1,7 +1,7 @@
 
-<h1>Directives</h1>
+<h1>Directives</h1><br>
 
-<h2>ngClass directive</h2>
+<h2>ngClass directive</h2><br>
 
 <div [ngClass]="'css1 css4'">
     (1) ngClass is working.
@@ -19,7 +19,8 @@
     (4) ngClass is working.
 </div>
 
-<h2>ngStyle directive</h2>
+<br>
+<h2>ngStyle directive</h2><br>
 
 <div [ngStyle]="{
     'font-style': this.canSave ? 'italic' : 'normal',
@@ -33,13 +34,14 @@
     ngStyle is working using method.
 </div>
 
-<h2>Custom attribute directive</h2>
+<br>
+<h2>Custom attribute directive</h2><br>
 
 <b appChangeMe color="yellow" bg-color="blue">{{message}}</b>
 
 
 <br><hr>
-<h1>style binding</h1>
+<h1>Style binding</h1><br>
 
 <div [style]="{'background-color': 'green', 'color':'white', 'font-weight':'bold'}">
     (1) Hello World! using style binding.
@@ -55,7 +57,7 @@
 
 
 <br><hr>
-<h1>class binding</h1>
+<h1>Class binding</h1><br>
 
 <div [class]="'css1 css3'">
     Hello World! using class binding.
@@ -75,8 +77,7 @@
 
 
 <br><hr>
-
-<h1>if else if else condition</h1>
+<h1>if else if else condition</h1><br>
 
 @if (age <= 14) {
     <div [class]="'css3'">You are child</div>
@@ -88,7 +89,8 @@
     <div [class]="'css3'">You are old</div>
 }
 
-<h1>for loop</h1>
+<br>
+<h1>for loop</h1><br>
 
 @for (country of countries; track $index) {
     <div [class]="'css3'">{{$index + 1 + ' - ' + country}}</div>
@@ -96,7 +98,8 @@
     <h2>Empty</h2>
 }
 
-<h1>Switch case</h1>
+<br>
+<h1>Switch case</h1><br>
 
 @switch (month) {
     @case (1) {
@@ -142,7 +145,7 @@
 
 
 <br><hr>
-<h1>Attribute binding</h1>
+<h1>Attribute binding</h1><br>
 
 <table border="1">
     <tr>
@@ -160,55 +163,57 @@
 
 
 <br><hr>
-<h1>Property binding</h1>
+<h1>Property binding</h1><br>
 
-<div [innerHTML]="message"></div>
+<div>
+    <div [innerHTML]="message"></div><br>
+    <img [src]="img" alt="Not found" width="200px" />
+</div>
+
 <br>
-<img [src]="img" alt="Not found" width="200px" />
+<h2>Difference between "Property binding" and "Interpolation"</h2><br>
 
-<h2>Difference between "Property binding" and "Interpolation"</h2>
+<h3>Property binding</h3><br>
+<button (click)="toggleDisable()" [disabled]="isTrue" class="btn btn-primary">Click</button>
 
-<h2>Property binding</h2>
-<button (click)="toggleDisable()" [disabled]="isTrue">Click</button>
-
-<h2>Interpolation</h2>
+<h3 class="mt-4">Interpolation</h3><br>
 <!-- second method to use events -->
-<button on-click="toggleDisable()" disabled="{{isTrue}}">Click</button>
+<button on-click="toggleDisable()" disabled="{{isTrue}}" class="btn btn-primary">Click</button>
 
 <br><br>
-<button (click)="toggleDisable()">Click to see difference</button>
+<button (click)="toggleDisable()" class="btn btn-primary">Click to see difference</button>
 
 
 <br><hr>
-<h1>Template reference variable</h1>
+<h1>Template reference variable</h1><br>
 
 <div>
     <!-- Enter your message : <input type="text" (keyup)="setMessage(txtMsg.value)" #txtMsg /> -->
     Enter your message : <input type="text" (keyup)="message=txtMsg.value" #txtMsg />
-    <h4>Message : <span style="color: blue;">{{message}}</span></h4>
+    <h4 class="mt-4">Message : <span style="color: blue;">{{message}}</span></h4>
 </div>
 
 
 <br><hr>
-<h1>Pipes</h1>
+<h1>Pipes</h1><br>
 
-<h2>uppercase, lowercase and titlecase</h2>
+<h2>uppercase, lowercase and titlecase</h2><br>
 
 <div><b>uppercase : </b>{{message | uppercase}}</div>
 <div><b>lowercase : </b>{{message | lowercase}}</div>
 <div><b>titlecase : </b>{{message | titlecase}}</div>
 
-<h2>slice</h2>
+<h2 class="mt-4">slice</h2><br>
 
 <div>{{message | slice :6}}</div>
 <div>{{message | slice :1:4}}</div>
 <div>{{countries | slice :2:5}}</div>
 
-<h2>json</h2>
+<h2 class="mt-4">json</h2><br>
 
 <div>{{obj | json}}</div>
 
-<h2>currency</h2>
+<h2 class="mt-4">currency</h2><br>
 
 <div>{{price | currency}}</div>
 <div>{{price | currency :"USD"}}</div>
@@ -218,19 +223,19 @@
 <div>{{price | currency :"CAD"}}</div>
 <div>{{price | currency :"USD":"code":"2.3-4"}}</div>
 
-<h2>number</h2>
+<h2 class="mt-4">number</h2><br>
 
 <div>{{decimal | number}}</div>
 <div>{{decimal | number :"2.4"}}</div>
 <div>{{decimal | number :"2.3-5"}}</div>
 <div>{{decimal | number :"2.3-5":"en-US"}}</div>
 
-<h2>percent</h2>
+<h2 class="mt-4">percent</h2><br>
 
 <div>{{decimal | percent}}</div>
 <div>{{decimal | percent :"2.3-4"}}</div>
 
-<h2>date</h2>
+<h2 class="mt-4">date</h2><br>
 
 <div><b>date : </b>{{currentDate | date}}</div>
 <br>
@@ -265,18 +270,18 @@
 <div><b>d MMM, yyyy : </b>{{currentDate | date :"d MMM, yyyy"}}</div>
 <div><b>d MMMM, yyyy : </b>{{currentDate | date :"d MMMM, yyyy"}}</div>
 
-<h2>Pipe chaining</h2>
+<h2 class="mt-4">Pipe chaining</h2><br>
 
 <div>{{currentDate | date :"fullDate" | uppercase}}</div>
 
-<h2>Custom pipe</h2>
+<h2 class="mt-4">Custom pipe</h2><br>
 
 <div>{{message | myPipe}}</div>
 <div>{{4 | power:3}}</div>
 
 
 <br><hr>
-<h1 class="mb-4">Parent to child communication</h1>
+<h1 class="mb-5">Parent to child communication</h1>
 
 <div class="mb-4">
     <h3 style="color: white; background-color:blue; padding: 5px;">Parent component</h3>
@@ -295,7 +300,7 @@
 }
 
 <br><hr>
-<h1 class="mb-4">Child to parent communication</h1>
+<h1 class="mb-5">Child to parent communication</h1>
 
 <div class="mb-4">
     <h3 style="color: white; background-color:blue; padding: 5px;">Parent component</h3>
@@ -321,7 +326,7 @@
 
 
 <hr>
-<h1>"&#64;HostListner" decorator</h1>
+<h1>"&#64;HostListner" decorator</h1><br>
 
 <div>
     <span appHoverHighlight style="font-size: 20px; font-style: italic;">
@@ -331,7 +336,7 @@
 
 
 <br><hr>
-<h1>"&#64;HostListner" and "&#64;HostBinding" decorator</h1>
+<h1>"&#64;HostListner" and "&#64;HostBinding" decorator</h1><br>
 
 <div appChangeBgColor style="cursor: pointer;">
     <h2>Click here! I'm HostListener</h2>
@@ -346,3 +351,8 @@
 <h2>Model-Driven Form (Reactive Form)</h2>
 <app-model-driven-form></app-model-driven-form>
 
+
+<br><hr>
+<h1 class="mb-4">Two way binding</h1>
+
+<app-two-way-binding></app-two-way-binding>

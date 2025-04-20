@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-employees-list',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './employees-list.component.html',
   styleUrl: './employees-list.component.css'
 })

@@ -10,6 +10,7 @@ import { TemplateDrivenFormComponent } from '../template-driven-form/template-dr
 import { ModelDrivenFormComponent } from '../model-driven-form/model-driven-form.component';
 import { ProductComponent } from '../product/product.component';
 import { Product2Component } from '../product2/product2.component';
+import { TwoWayBindingComponent } from '../two-way-binding/two-way-binding.component';
 
 @Component({
   selector: 'app-my-component',
@@ -23,7 +24,8 @@ import { Product2Component } from '../product2/product2.component';
     ProductComponent,
     Product2Component,
     TemplateDrivenFormComponent,
-    ModelDrivenFormComponent],
+    ModelDrivenFormComponent,
+    TwoWayBindingComponent],
   templateUrl: './my-component.component.html',
   styleUrl: './my-component.component.css'
 })
