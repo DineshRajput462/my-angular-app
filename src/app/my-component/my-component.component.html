@@ -90,15 +90,52 @@
 }
 
 <br>
+<h1>ngIf condition</h1><br>
+
+<div *ngIf="age <= 14; else second">
+    <div [class]="'css3'">You are child</div>
+</div>
+
+<ng-template #second>
+    <ng-container *ngIf="age > 14 && age < 18; else third">
+        <div [class]="'css3'">You are teenager</div>
+    </ng-container>
+</ng-template>
+<ng-template #third>
+    <ng-container *ngIf="age >= 18 && age <= 50; else fourth">
+        <div [class]="'css3'">You are young</div>
+    </ng-container>
+</ng-template>
+<ng-template #fourth>
+    <div [class]="'css3'">You are old</div>
+</ng-template>
+
+<br><br>
 <h1>for loop</h1><br>
 
-@for (country of countries; track $index) {
-    <div [class]="'css3'">{{$index + 1 + ' - ' + country}}</div>
+@for (country of countries; track $index; let c = $count; let i = $index; let f = $first; let l = $last; let o = $odd; let e = $even) {
+    @if (o) {
+        <div [class]="'css3'" style="color: red;">{{i + 1 + ' - ' + country}}</div>
+    } @else {
+        <div [class]="'css3'">{{$index + 1 + ' - ' + country}}</div>       
+    }
 }@empty {
     <h2>Empty</h2>
 }
 
 <br>
+<h1>ngFor</h1><br>
+
+<div *ngFor="let country of countries; let c = count; let i = index; let f = first; let l = last; let o = odd; let e = even">
+    <div *ngIf="o; else ct">
+        <div [class]="'css3'" style="color: red;">{{i + 1 + ' - ' + country}}</div>
+    </div>
+    <ng-template #ct>
+        <div [class]="'css3'">{{i + 1 + ' - ' + country}}</div>
+    </ng-template>
+</div>
+
+<br><br>
 <h1>Switch case</h1><br>
 
 @switch (month) {
@@ -143,6 +180,24 @@
     }
 }
 
+<br>
+<h1>ngSwitch</h1><br>
+
+<div [ngSwitch]="month">
+    <div *ngSwitchCase="1" [class]="'css3'">Today's month is January</div>
+    <div *ngSwitchCase="2" [class]="'css3'">Today's month is February</div>
+    <div *ngSwitchCase="3" [class]="'css3'">Today's month is March</div>
+    <div *ngSwitchCase="4" [class]="'css3'">Today's month is April</div>
+    <div *ngSwitchCase="5" [class]="'css3'">Today's month is May</div>
+    <div *ngSwitchCase="6" [class]="'css3'">Today's month is June</div>
+    <div *ngSwitchCase="7" [class]="'css3'">Today's month is July</div>
+    <div *ngSwitchCase="8" [class]="'css3'">Today's month is August</div>
+    <div *ngSwitchCase="9" [class]="'css3'">Today's month is September</div>
+    <div *ngSwitchCase="10" [class]="'css3'">Today's month is October</div>
+    <div *ngSwitchCase="11" [class]="'css3'">Today's month is November</div>
+    <div *ngSwitchCase="12" [class]="'css3'">Today's month is December</div>
+    <div *ngSwitchDefault [class]="'css1'">No data matched.</div>
+</div>
 
 <br><hr>
 <h1>Attribute binding</h1><br>
